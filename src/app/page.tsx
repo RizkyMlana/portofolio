@@ -16,10 +16,11 @@ export default function Home() {
       <Projects />
       <Certificates />
       <Contact />
-      
-      <footer className="py-6 text-center text-sm text-gray-500">
-        © 2025 Nama Kamu. Dibuat dengan Next.js
-      </footer>
+        <footer className=" border-t py-8 border-carbon-700 text-center">
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} Rizky Maulana Saputra. Dibangun dengan Next.js & Tailwind CSS.
+          </p>
+        </footer>
     </main>
   );
 }
