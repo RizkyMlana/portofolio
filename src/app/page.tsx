@@ -13,12 +13,12 @@ export default function Home() {
       <Hero />
       <About />
       <Skills />
-      <Projects />
       <Certificates />
+      <Projects />
       <Contact />
         <footer className=" border-t py-8 border-carbon-700 text-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Rizky Maulana Saputra. Dibangun dengan Next.js & Tailwind CSS.
+            © {new Date().getFullYear()} <span className="text-petronas-500">Rizky Maulana Saputra.</span>
           </p>
         </footer>
     </main>

@@ -5,8 +5,9 @@ import { useState } from "react";
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
+  { name: "Certificates", href: "#certificates"},
+  { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -17,7 +18,7 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full z-50 bg-carbon-900/80 backdrop-blur-md border-b border-carbon-800 transition-all duration-300">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="#home" className="text-2xl font-bold text-white tracking-tight">
-          Portofolio<span className="text-petronas-400">Saya.</span>
+          My<span className="text-petronas-400">Portofolio</span>
         </Link>
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
@@ -36,7 +37,7 @@ export default function Navbar() {
             href="#contact" 
             className="px-5 py-2.5 text-sm font-bold text-carbon-900 bg-petronas-400 hover:bg-petronas-500 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,210,190,0.4)]"
           >
-            Lets Talk
+            Let`s Talk
           </Link>
         </div>
         <button 
@@ -72,7 +73,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="mt-4 text-center px-5 py-3 text-sm font-bold text-carbon-900 bg-petronas-400 hover:bg-petronas-500 rounded-lg transition-all"
             >
-              Lets Talk
+              Let`s Talk
             </Link>
           </div>
         </div>
