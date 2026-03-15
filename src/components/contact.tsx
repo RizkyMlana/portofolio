@@ -1,5 +1,5 @@
 "use client";
-import { Mail, MapPin, Github, Linkedin, FileText, Send } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, Instagram, Send } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Contact() {
@@ -58,24 +58,19 @@ export default function Contact() {
               >
                 Send me an Email <Send size={18} />
               </a>
-              <a 
-                href="/cv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-transparent border border-carbon-700 text-gray-300 hover:border-petronas-400 hover:text-petronas-400 rounded-full font-medium transition-all duration-300"
-              >
-                <FileText size={18} /> Download Resume
-              </a>
             </div>
 
             <div className="pt-8 border-t border-carbon-700">
               <p className="text-sm text-gray-500 font-medium mb-4">Find me on</p>
               <div className="flex justify-center gap-4">
-                <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
+                <a href="https://github.com/RizkyMlana" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
                   <Github size={22} />
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
+                <a href="https://www.linkedin.com/in/rizky-maulana-saputra" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
                   <Linkedin size={22} />
+                </a>
+                <a href="https://www.instagram.com/rizkymlaana/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
+                  <Instagram size={22}/>
                 </a>
               </div>
             </div>

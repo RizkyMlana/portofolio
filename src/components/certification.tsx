@@ -57,7 +57,7 @@ export default function Certificates() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-            <span className="text-petronas-400">Certifications</span>
+            My <span className="text-petronas-400">Certifications</span>
           </h2>
           <div className="w-16 h-1 bg-petronas-400 mx-auto rounded-full mb-6"></div>
           <p className="text-gray-400 max-w-2xl mx-auto">
@@ -76,21 +76,21 @@ export default function Certificates() {
             <motion.div 
               variants={cardVariants}
               key={idx} 
-              className="p-6 bg-carbon-900 border border-carbon-700 rounded-xl hover:border-petronas-400 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,210,190,0.15)] transition-all duration-300 group flex flex-col"
+              className="p-6 bg-carbon-900 border border-carbon-700 rounded-xl hover:border-petronas-400 hover:-translate-y-2 hover:shadow-sm hover:shadow-petronas-400 transition-all duration-300 group flex flex-col"
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="p-3 bg-carbon-800 border border-carbon-700 rounded-lg group-hover:border-petronas-400/50 group-hover:bg-petronas-400/10 group-hover:text-petronas-400 text-gray-400 transition-all duration-300">
                   <Award className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-200 group-hover:text-white transition-colors leading-tight">
+                  <h3 className="text-lg font-bold text-gray-200 line-clamp-2 group-hover:text-white transition-colors leading-tight">
                     {cert.name}
                   </h3>
                 </div>
               </div>
               <div className="flex-grow">
                 <p className="text-sm font-medium text-petronas-400 mb-1">{cert.issuer}</p>
-                <p className="text-xs text-gray-500 mb-6">{cert.date}</p>
+                <p className="text-xs text-gray-400 mb-6">{cert.date}</p>
               </div>
 
               {cert.link && (
