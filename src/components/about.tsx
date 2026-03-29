@@ -1,16 +1,35 @@
 "use client";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+
+// 1. Komponen baru untuk animasi angka berjalan
+function AnimatedNumber({ value }: { value: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  
+  const motionValue = useMotionValue(0);
+  const rounded = useTransform(motionValue, (latest) => Math.round(latest));
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(motionValue, value, { 
+        duration: 2.5, // Durasi animasi (2.5 detik)
+        ease: "easeOut" 
+      });
+      return controls.stop;
+    }
+  }, [isInView, value, motionValue]);
+
+  return <motion.span ref={ref}>{rounded}</motion.span>;
+}
 
 export default function About() {
   const textContainerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
     },
   };
 
@@ -28,10 +47,7 @@ export default function About() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.6, 
-      },
+      transition: { staggerChildren: 0.1, delayChildren: 0.6 },
     },
   };
 
@@ -47,11 +63,7 @@ export default function About() {
 
   const floatingAnimation = {
     y: [-8, 8, -8],
-    transition: {
-      duration: 6,
-      repeat: Infinity,
-      ease: "easeInOut" as const,
-    },
+    transition: { duration: 6, repeat: Infinity, ease: "easeInOut" as const },
   };
 
   return (
@@ -68,10 +80,7 @@ export default function About() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full lg:w-2/5 flex justify-center lg:justify-end"
           >
-            <motion.div 
-              animate={floatingAnimation} 
-              className="relative group cursor-pointer"
-            >
+            <motion.div animate={floatingAnimation} className="relative group cursor-pointer">
               <div className="absolute -inset-4 border-2 border-petronas-400/30 rounded-2xl rotate-6 group-hover:rotate-3 transition-transform duration-500"></div>
               
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] -rotate-3 group-hover:rotate-0 transition-all duration-500 bg-carbon-900 border border-carbon-700">
@@ -125,17 +134,23 @@ export default function About() {
               className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4"
             >
               <motion.div variants={statCardVariants} className="bg-carbon-900 border border-carbon-700 p-5 rounded-xl text-center hover:-translate-y-2 hover:border-petronas-400/50 hover:shadow-[0_10px_20px_rgba(0,210,190,0.1)] transition-all duration-300">
-                <span className="block text-4xl font-black text-petronas-400 mb-1">3+</span>
+                <span className="block text-4xl font-black text-petronas-400 mb-1">
+                  <AnimatedNumber value={3} />+
+                </span>
                 <span className="text-xs md:text-sm font-medium text-gray-400 uppercase tracking-wider">Years<br/>of Learning</span>
               </motion.div>
               
               <motion.div variants={statCardVariants} className="bg-carbon-900 border border-carbon-700 p-5 rounded-xl text-center hover:-translate-y-2 hover:border-petronas-400/50 hover:shadow-[0_10px_20px_rgba(0,210,190,0.1)] transition-all duration-300">
-                <span className="block text-4xl font-black text-petronas-400 mb-1">20+</span>
+                <span className="block text-4xl font-black text-petronas-400 mb-1">
+                  <AnimatedNumber value={10} />+
+                </span>
                 <span className="text-xs md:text-sm font-medium text-gray-400 uppercase tracking-wider">Projects<br/>Completed</span>
               </motion.div>
               
               <motion.div variants={statCardVariants} className="col-span-2 md:col-span-1 bg-carbon-900 border border-carbon-700 p-5 rounded-xl text-center hover:-translate-y-2 hover:border-petronas-400/50 hover:shadow-[0_10px_20px_rgba(0,210,190,0.1)] transition-all duration-300">
-                <span className="block text-4xl font-black text-petronas-400 mb-1">5+</span>
+                <span className="block text-4xl font-black text-petronas-400 mb-1">
+                  <AnimatedNumber value={5} />+
+                </span>
                 <span className="text-xs md:text-sm font-medium text-gray-400 uppercase tracking-wider">Certifications</span>
               </motion.div>
             </motion.div>

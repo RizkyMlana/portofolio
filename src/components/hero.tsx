@@ -21,6 +21,7 @@ export default function Hero() {
       transition: { type: "spring", stiffness: 120, damping: 10 } 
     },
   };
+
   const titleVariants: Variants = {
     hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
     visible: { 
@@ -53,8 +54,38 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center bg-carbon-900 overflow-hidden pt-20">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-petronas-600/10 rounded-full blur-[120px] pointer-events-none" />
+      
+      {/* 1. LAYER PATTERN SILVER F1 (Sparse 25% Density - STATIS AJA BIAR ENTENG) */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none overflow-hidden" 
+        style={{ 
+          WebkitMaskImage: 'radial-gradient(ellipse at center, transparent 30%, black 100%)', 
+          maskImage: 'radial-gradient(ellipse at center, transparent 30%, black 100%)' 
+        }}
+      >
+        <div className="w-full h-full opacity-20">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <g id="star-template">
+                <path d="M 24 10 L 26 23 L 38 34 L 24 28 L 10 34 L 22 23 Z" fill="#cbd5e1" />
+              </g>
 
+              <pattern id="f1-stars-sparse" x="0" y="0" width="160" height="160" patternUnits="userSpaceOnUse" patternTransform="rotate(-15)">
+                <use href="#star-template" x="0" y="0" />
+                <use href="#star-template" x="80" y="40" />
+                <use href="#star-template" x="40" y="120" />
+                <use href="#star-template" x="120" y="80" />
+              </pattern>
+            </defs>
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#f1-stars-sparse)" />
+          </svg>
+        </div>
+      </div>
+
+      {/* 2. LAYER GLOW PETRONAS */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-petronas-600/10 rounded-full blur-[120px] pointer-events-none z-0" />
+
+      {/* 3. LAYER KONTEN UTAMA */}
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           variants={containerVariants}
