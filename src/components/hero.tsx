@@ -1,5 +1,6 @@
 "use client";
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 
 export default function Hero() {
   const containerVariants: Variants = {
@@ -121,18 +122,18 @@ export default function Hero() {
             variants={buttonVariants}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <a 
+            <Link 
               href="#projects"
               className="w-full sm:w-auto px-8 py-3.5 bg-petronas-400 text-carbon-900 rounded-full font-bold hover:bg-petronas-500 hover:shadow-[0_0_20px_rgba(0,210,190,0.3)] transition-all duration-300"
             >
               View My Projects
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="#contact"
               className="w-full sm:w-auto px-8 py-3.5 bg-transparent text-white border border-carbon-700 hover:border-petronas-400 hover:text-petronas-400 rounded-full font-medium transition-all duration-300"
             >
               Contact Me
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

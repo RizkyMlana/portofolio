@@ -1,6 +1,8 @@
 "use client";
-import { Mail, MapPin, Github, Linkedin, Instagram, Send } from "lucide-react";
+import { Mail, MapPin, Linkedin, Send} from "lucide-react";
+import { SiHuggingface, SiInstagram, SiGithub } from "react-icons/si";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Contact() {
   return (
@@ -53,7 +55,7 @@ export default function Contact() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
               <a 
-                href="mailto:rizkymlaana.saputra@gmail.com" 
+                href="mailto:rizkymlaana.saputra@gmail.com"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-petronas-400 text-carbon-900 rounded-full font-bold hover:bg-petronas-600 hover:shadow-[0_0_20px_rgba(0,210,190,0.3)] transition-all duration-300"
               >
                 Send me an Email <Send size={18} />
@@ -63,15 +65,18 @@ export default function Contact() {
             <div className="pt-8 border-t border-carbon-700">
               <p className="text-sm text-gray-500 font-medium mb-4">Find me on</p>
               <div className="flex justify-center gap-4">
-                <a href="https://github.com/RizkyMlana" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
-                  <Github size={22} />
-                </a>
-                <a href="https://www.linkedin.com/in/rizky-maulana-saputra" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
+                <Link href="https://github.com/RizkyMlana" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
+                  <SiGithub size={22} />
+                </Link>
+                <Link href="https://www.linkedin.com/in/rizky-maulana-saputra" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
                   <Linkedin size={22} />
-                </a>
-                <a href="https://www.instagram.com/rizkymlaana/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
-                  <Instagram size={22}/>
-                </a>
+                </Link>
+                <Link href="https://www.instagram.com/rizkymlaana/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
+                  <SiInstagram size={22}/>
+                </Link>
+                <Link href="https://huggingface.co/Mlaana/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
+                  <SiHuggingface size={22}/>
+                </Link>
               </div>
             </div>
           </div>

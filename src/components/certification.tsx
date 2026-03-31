@@ -1,6 +1,7 @@
 "use client";
 import { ExternalLink, Award } from "lucide-react"; 
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 
 const certificates = [
   {
@@ -95,7 +96,7 @@ export default function Certificates() {
 
               {cert.link && (
                 <div className="pt-4 border-t border-carbon-700/50 mt-auto">
-                  <a 
+                  <Link 
                     href={cert.link} 
                     target="_blank"
                     rel="noopener noreferrer"
@@ -103,7 +104,7 @@ export default function Certificates() {
                   >
                     View Certificate
                     <ExternalLink className="w-4 h-4 ml-1.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </a>
+                  </Link>
                 </div>
               )}
             </motion.div>
