@@ -71,10 +71,7 @@ export default function Skills() {
               {aiSkills.map((skill, i) => (
                 <div
                   key={skill.name}
-                  className="absolute top-1/2 left-1/2 flex flex-col items-center justify-center gap-2 p-3 w-24 h-24 rounded-full
-                             bg-carbon-800/80 backdrop-blur-md text-gray-400
-                             border border-petronas-400/20 hover:border-petronas-400 hover:text-petronas-400
-                             hover:shadow-[0_0_20px_rgba(0,210,190,0.4)] transition-all duration-300 cursor-default group"
+                  className="absolute top-1/2 left-1/2 flex flex-col items-center justify-center gap-2 p-3 w-24 h-24 rounded-full bg-carbon-800/80 backdrop-blur-md text-gray-400 border border-petronas-400/20 hover:border-petronas-400 hover:text-petronas-400 hover:shadow-[0_0_20px_rgba(0,210,190,0.4)] transition-all duration-300 cursor-default group"
                   style={{
                     transform: `
                       translate(-50%, -50%) 
@@ -106,10 +103,7 @@ export default function Skills() {
               {webSkills.map((skill, i) => (
                 <div
                   key={skill.name}
-                  className="absolute top-1/2 left-1/2 flex flex-col items-center justify-center gap-2 p-3 w-24 h-24 rounded-full
-                             bg-carbon-800/80 backdrop-blur-md text-gray-400
-                             border border-blue-400/20 hover:border-blue-400 hover:text-blue-400
-                             hover:shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all duration-300 cursor-default group"
+                  className="absolute top-1/2 left-1/2 flex flex-col items-center justify-center gap-2 p-3 w-24 h-24 rounded-full bg-carbon-800/80 backdrop-blur-md text-gray-400 border border-blue-400/20 hover:border-blue-400 hover:text-blue-400 hover:shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all duration-300 cursor-default group"
                   style={{
                     transform: `
                       translate(-50%, -50%) 

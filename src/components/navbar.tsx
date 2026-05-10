@@ -4,16 +4,14 @@ import { useState } from "react";
 
 const navItems = [
   { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Certificates", href: "#certificates"},
   { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Experience", href:"#experience"},
+  { name: "Certificates", href: "#certificates"},
+  { name: "Skills", href: "#skills" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <nav className="fixed top-0 w-full z-50 bg-carbon-900/80 backdrop-blur-md border-b border-carbon-800 transition-all duration-300">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
