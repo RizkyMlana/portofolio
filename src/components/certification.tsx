@@ -52,7 +52,7 @@ export default function Certificates() {
   };
 
   return (
-    <section id="certificates" className="py-24 bg-carbon-800 relative overflow-hidden">
+    <section id="certificates" className="py-24 bg-carbon-900 relative overflow-hidden">
       <div className="absolute top-1/3 right-0 w-80 h-80 bg-petronas-600/5 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -77,7 +77,7 @@ export default function Certificates() {
             <motion.div 
               variants={cardVariants}
               key={idx} 
-              className="p-6 bg-carbon-900 border border-carbon-700 rounded-xl hover:border-petronas-400 hover:-translate-y-2 hover:shadow-sm hover:shadow-petronas-400 transition-all duration-300 group flex flex-col"
+              className="p-6 bg-carbon-800 border border-carbon-700 rounded-xl hover:border-petronas-400 hover:-translate-y-2 hover:shadow-sm hover:shadow-petronas-400 transition-all duration-300 group flex flex-col"
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="p-3 bg-carbon-800 border border-carbon-700 rounded-lg group-hover:border-petronas-400/50 group-hover:bg-petronas-400/10 group-hover:text-petronas-400 text-gray-400 transition-all duration-300">
@@ -89,7 +89,7 @@ export default function Certificates() {
                   </h3>
                 </div>
               </div>
-              <div className="flex-grow">
+              <div className="grow">
                 <p className="text-sm font-medium text-petronas-400 mb-1">{cert.issuer}</p>
                 <p className="text-xs text-gray-400 mb-6">{cert.date}</p>
               </div>

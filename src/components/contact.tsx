@@ -1,6 +1,7 @@
 "use client";
-import { Mail, MapPin, Linkedin, Send} from "lucide-react";
+import { Mail, MapPin,  Send} from "lucide-react";
 import { SiHuggingface, SiInstagram, SiGithub } from "react-icons/si";
+import {FaLinkedin} from "react-icons/fa"
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -69,7 +70,7 @@ export default function Contact() {
                   <SiGithub size={22} />
                 </Link>
                 <Link href="https://www.linkedin.com/in/rizky-maulana-saputra" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
-                  <Linkedin size={22} />
+                  <FaLinkedin size={22} />
                 </Link>
                 <Link href="https://www.instagram.com/rizkymlaana/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
                   <SiInstagram size={22}/>

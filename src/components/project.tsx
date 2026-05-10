@@ -113,10 +113,10 @@ export default function Projects() {
                     className="object-cover object-center relative z-10 group-hover:scale-110 transition-transform duration-700 ease-in-out opacity-80 group-hover:opacity-100" 
                  />
                  
-                 <div className="absolute inset-0 bg-gradient-to-t from-carbon-800 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none"></div>
+                 <div className="absolute inset-0 bg-linear-to-t from-carbon-800 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none"></div>
               </div>
 
-              <div className="p-6 flex flex-col flex-grow">
+              <div className="p-6 flex flex-col grow">
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-petronas-400 transition-colors">
                   {project.title}
                 </h3>

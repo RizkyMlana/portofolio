@@ -54,9 +54,9 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-24 lg:gap-32 min-h-[400px]">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-24 lg:gap-32 min-h-100">
           
-          <div className="[perspective:1000px] relative flex items-center justify-center">
+          <div className="perspective-[1000px] relative flex items-center justify-center">
             <div className="absolute z-10 w-20 h-20 bg-carbon-800 border-2 border-petronas-400 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(0,210,190,0.4)]">
               <span className="text-petronas-400 font-bold text-xl">AI / ML</span>
             </div>
@@ -64,9 +64,9 @@ export default function Skills() {
             <motion.div 
               animate={{ rotateY: 360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="relative w-80 h-80 [transform-style:preserve-3d]"
+              className="relative w-80 h-80 transform-3d"
             >
-              <div className="absolute inset-0 border border-carbon-700/50 rounded-full [transform:rotateX(75deg)]"></div>
+              <div className="absolute inset-0 border border-carbon-700/50 rounded-full transform-[rotateX(75deg)]"></div>
 
               {aiSkills.map((skill, i) => (
                 <div
@@ -91,7 +91,7 @@ export default function Skills() {
               ))}
             </motion.div>
           </div>
-          <div className="[perspective:1000px] relative flex items-center justify-center">
+          <div className="perspective-[1000px] relative flex items-center justify-center">
             <div className="absolute z-10 w-20 h-20 bg-carbon-800 border-2 border-blue-400 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(96,165,250,0.4)]">
               <span className="text-blue-400 font-bold text-xl">WEB</span>
             </div>
@@ -99,9 +99,9 @@ export default function Skills() {
             <motion.div 
               animate={{ rotateY: -360 }} 
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="relative w-80 h-80 [transform-style:preserve-3d]"
+              className="relative w-80 h-80 transform-3d"
             >
-              <div className="absolute inset-0 border border-carbon-700/50 rounded-full [transform:rotateX(75deg)]"></div>
+              <div className="absolute inset-0 border border-carbon-700/50 rounded-full transform-[rotateX(75deg)]"></div>
 
               {webSkills.map((skill, i) => (
                 <div

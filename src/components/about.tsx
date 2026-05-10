@@ -67,7 +67,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-24 bg-carbon-800 relative overflow-hidden">
+    <section id="about" className="py-24 bg-carbon-900 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-petronas-600/10 rounded-full blur-[100px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-petronas-600/5 rounded-full blur-[80px] pointer-events-none"></div>
 
@@ -112,7 +112,7 @@ export default function About() {
                 <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
                   About <span className="text-petronas-400">Me</span>
                 </h2>
-                <div className="h-px bg-carbon-700 flex-grow ml-4 hidden md:block"></div>
+                <div className="h-px bg-carbon-700 grow ml-4 hidden md:block"></div>
               </motion.div>
               
               <div className="space-y-5 text-gray-400 text-base md:text-lg leading-relaxed">
@@ -133,23 +133,23 @@ export default function About() {
               viewport={{ once: true, margin: "-50px" }}
               className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4"
             >
-              <motion.div variants={statCardVariants} className="bg-carbon-900 border border-carbon-700 p-5 rounded-xl text-center hover:-translate-y-2 hover:border-petronas-400/50 hover:shadow-[0_10px_20px_rgba(0,210,190,0.1)] transition-all duration-300">
+              <motion.div variants={statCardVariants} className="bg-carbon-800 border border-carbon-700 p-5 rounded-xl text-center hover:-translate-y-2 hover:border-petronas-400/50 hover:shadow-[0_10px_20px_rgba(0,210,190,0.1)] transition-all duration-300">
                 <span className="block text-4xl font-black text-petronas-400 mb-1">
                   <AnimatedNumber value={3} />+
                 </span>
                 <span className="text-xs md:text-sm font-medium text-gray-400 uppercase tracking-wider">Years<br/>of Learning</span>
               </motion.div>
               
-              <motion.div variants={statCardVariants} className="bg-carbon-900 border border-carbon-700 p-5 rounded-xl text-center hover:-translate-y-2 hover:border-petronas-400/50 hover:shadow-[0_10px_20px_rgba(0,210,190,0.1)] transition-all duration-300">
+              <motion.div variants={statCardVariants} className="bg-carbon-800 border border-carbon-700 p-5 rounded-xl text-center hover:-translate-y-2 hover:border-petronas-400/50 hover:shadow-[0_10px_20px_rgba(0,210,190,0.1)] transition-all duration-300">
                 <span className="block text-4xl font-black text-petronas-400 mb-1">
-                  <AnimatedNumber value={10} />+
+                  <AnimatedNumber value={20} />+
                 </span>
                 <span className="text-xs md:text-sm font-medium text-gray-400 uppercase tracking-wider">Projects<br/>Completed</span>
               </motion.div>
               
-              <motion.div variants={statCardVariants} className="col-span-2 md:col-span-1 bg-carbon-900 border border-carbon-700 p-5 rounded-xl text-center hover:-translate-y-2 hover:border-petronas-400/50 hover:shadow-[0_10px_20px_rgba(0,210,190,0.1)] transition-all duration-300">
+              <motion.div variants={statCardVariants} className="col-span-2 md:col-span-1 bg-carbon-800 border border-carbon-700 p-5 rounded-xl text-center hover:-translate-y-2 hover:border-petronas-400/50 hover:shadow-[0_10px_20px_rgba(0,210,190,0.1)] transition-all duration-300">
                 <span className="block text-4xl font-black text-petronas-400 mb-1">
-                  <AnimatedNumber value={5} />+
+                  <AnimatedNumber value={15} />+
                 </span>
                 <span className="text-xs md:text-sm font-medium text-gray-400 uppercase tracking-wider">Certifications</span>
               </motion.div>
@@ -158,6 +158,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      <div className="absolute bottom-0 left-0 h-32 w-full bg-linear-to-b from-transparent to-carbon-800 pointer-events-none z-20" />
     </section>
   );
 }
