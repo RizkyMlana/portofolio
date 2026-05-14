@@ -6,24 +6,32 @@ import { SiGithub} from "react-icons/si";
 
 const projects = [
   {
+    title: "Freshwater Fish Disease Classification",
+    desc: "Undergraduate thesis project comparing ShuffleNet, EfficientNet, ResNet, and MobileNet for freshwater fish disease classification using deep learning and computer vision.",
+    tech: ["Python", "PyTorch", "Gradio", "HuggingFace"],
+    image: "/images/projects/freshwater-fish-classification.png",
+    githubLink: "https://github.com/RizkyMlana/Freshwater-Fish-Disease-Model",
+    demoLink : "https://huggingface.co/spaces/Mlaana/Freshwater-Fish-Disease",
+  },
+  {
     title: "SignArgi – Sign Language Recognition",
     desc: "Computer vision system that recognizes sign language gestures using a MobileNet-based CNN model. Designed as a prototype for real-time sign language translation.",
-    tech: ["TensorFlow", "OpenCV", "MobileNet"],
+    tech: ["Python", "TensorFlow", "OpenCV"],
     image: "/images/projects/signargi.png",
     githubLink: "https://github.com/RizkyMlana/SignArgi-Model",
   },
   {
-    title: "GymBro – AI Fitness Assistant",
-    desc: "AI-powered fitness assistant featuring an image classification model and chatbot. Responsible for deploying the machine learning models using HuggingFace Spaces.",
+    title: "GymBro – AI Fitness Chatbot",
+    desc: "Fitness-focused chatbot application deployed using Gradio and HuggingFace Spaces.",
     tech: ["Python", "HuggingFace", "Gradio"],
     image: "/images/projects/gymbro-chatbot.png",
     githubLink: "https://huggingface.co/spaces/Mlaana/Chatbot/tree/main",
     demoLink: "https://huggingface.co/spaces/Mlaana/Chatbot",
   },
   {
-    title: "GymBro – Exercise Image Classifier",
+    title: "GymBro – Exercise Classification Model",
     desc: "Computer vision model for recognizing workout exercises from images using a convolutional neural network. Deployed as an interactive demo using Gradio on HuggingFace Spaces.",
-    tech: ["Python", "TensorFlow", "Gradio"],
+    tech: ["Python", "TensorFlow", "Gradio", "HuggingFace"],
     image: "/images/projects/gymbro-classification-food.png",
     githubLink: "https://huggingface.co/spaces/Mlaana/Classification-Food/tree/main",
     demoLink: "https://huggingface.co/spaces/Mlaana/Classification-Food",
@@ -42,13 +50,7 @@ const projects = [
     image: "/images/projects/pipeline.png",
     githubLink: "https://github.com/RizkyMlana/ETL-Project",
   },
-  {
-    title: "Student Exam Score Prediction",
-    desc: "Data science project predicting student exam scores using machine learning models. The project includes exploratory data analysis, feature engineering, and model evaluation to understand factors affecting academic performance.",
-    tech: ["Python", "Pandas", "Scikit-Learn", "Matplotlib"],
-    image: "/images/projects/correlation-map.png",
-    githubLink: "https://github.com/RizkyMlana/Data-Science-Final-Project",
-  },
+  
 ];
 
 export default function Projects() {
