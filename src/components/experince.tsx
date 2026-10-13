@@ -1,5 +1,6 @@
-"use client"
-import { motion, Variants} from "framer-motion";
+"use client";
+
+import { motion, type Variants } from "framer-motion";
 
 const experiences = [
   {
@@ -26,130 +27,114 @@ const experiences = [
     period: "Feb 2025 — Jun 2025",
     type: "Academic",
     description:
-        "Assisted students during web programming practicum sessions, guided frontend and backend development concepts, and helped troubleshoot coding and implementation issues.",
+      "Assisted students during web programming practicum sessions, guided frontend and backend development concepts, and helped troubleshoot coding and implementation issues.",
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    },
+  },
 ];
 
-export default function Experience(){
-    const containerVariants: Variants = {
-        hidden: {},
-        visible: {
-        transition: {
-            staggerChildren: 0.15,
-        },
-        },
-    };
-
-    const cardVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 40,
-      filter: "blur(10px)",
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
     },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.7,
-        ease: "easeOut",
-      },
-    },
-  };
+  },
+};
 
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 12,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
+};
+
+export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden bg-carbon-800 pt-24 pb-32"
+      className="bg-[#F2F4F7] px-6 py-24 text-slate-blue-800 md:px-12 md:py-32"
     >
-      <div className="pointer-events-none absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-petronas-600/10 blur-[120px]" />
-
-      <div className="absolute top-0 left-0 h-24 w-full bg-linear-to-b from-carbon-900 to-transparent z-10" />
-
-      <div className="absolute bottom-0 left-0 h-24 w-full bg-linear-to-b from-transparent to-carbon-900 z-10" />
-
-      <div className="container relative z-20 mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
-        >
-          <h2 className="text-4xl font-black tracking-tight text-white md:text-5xl">
-            Work & Project
-            <span className="text-petronas-400"> Experience</span>
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-gray-400 md:text-lg">
-            A collection of internships, freelance work, and technical
-            projects focused on backend engineering, AI systems, and modern
-            web development.
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 border-b border-[#D8D5CD] pb-8 md:mb-16">
+          <p className="mb-4 font-mono text-xs tracking-[0.18em] text-[#00BFAE]">
+            BACKGROUND / EXPERIENCE
           </p>
-        </motion.div>
+
+          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <h2 className="text-4xl font-semibold tracking-[-0.055em] sm:text-5xl md:text-6xl">
+              Experience<span className="text-[#00BFAE]">.</span>
+            </h2>
+
+            <p className="max-w-md text-sm leading-7 text-[#66665F] md:text-base">
+              Professional experience, technical training, and academic
+              contributions that have shaped my engineering practice.
+            </p>
+          </div>
+        </div>
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="relative mx-auto max-w-4xl"
+          viewport={{ once: true, margin: "-80px" }}
+          className="border-t border-[#D8D5CD]"
         >
-          <div className="absolute left-4 top-0 h-full w-px bg-carbon-700 md:left-1/2 md:-translate-x-1/2" />
+          {experiences.map((exp, index) => (
+            <motion.article
+              key={`${exp.company}-${exp.role}`}
+              variants={itemVariants}
+              className="grid grid-cols-1 gap-4 border-b border-[#D8D5CD] py-8 md:grid-cols-[180px_minmax(0,1fr)] md:gap-12 md:py-10 lg:grid-cols-[220px_minmax(0,1fr)]"
+            >
+              <div className="flex flex-wrap items-center justify-between gap-3 md:block">
+                <p className="font-mono text-xs tracking-wide text-[#77776F]">
+                  {exp.period}
+                </p>
 
-          <div className="space-y-10">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                variants={cardVariants}
-                className={`relative flex w-full ${
-                  index % 2 === 0
-                    ? "md:justify-start"
-                    : "md:justify-end"
-                }`}
-              >
-                <div className="absolute left-4 top-8 z-20 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-carbon-800 bg-petronas-400 md:left-1/2" />
+                <span className="inline-flex border border-[#C7C3B9] px-2.5 py-1 text-[11px] uppercase tracking-[0.12em] text-[#66665F] md:mt-3">
+                  {exp.type}
+                </span>
+              </div>
 
-                <div className="ml-12 w-full md:ml-0 md:w-[46%]">
-                  <div className="group rounded-2xl border border-carbon-700 bg-carbon-900/80 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-petronas-400/40 hover:shadow-[0_10px_30px_rgba(0,210,190,0.08)]">
-                    <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-                      <span className="rounded-full border border-petronas-400/20 bg-petronas-400/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-petronas-400">
-                        {exp.type}
-                      </span>
+              <div>
+                <p className="mb-2 font-mono text-xs text-[#00BFAE]">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
 
-                      <span className="text-sm text-gray-500">
-                        {exp.period}
-                      </span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white">
-                      {exp.role}
-                    </h3>
+                <h3 className="text-xl font-semibold leading-snug tracking-[-0.035em] sm:text-2xl">
+                  {exp.role}
+                </h3>
 
-                    <p className="mt-1 text-petronas-400">
-                      {exp.company}
-                    </p>
-                    <p className="mt-4 leading-relaxed text-gray-400">
-                      {exp.description}
-                    </p>
-                    <div className="mt-5 flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="rounded-full border border-carbon-700 bg-carbon-800 px-3 py-1 text-xs font-medium text-gray-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                <p className="mt-1 text-sm font-medium text-[#66665F]">
+                  {exp.company}
+                </p>
+
+                <p className="mt-4 max-w-3xl text-sm leading-7 text-[#66665F] md:text-base">
+                  {exp.description}
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+                  {exp.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="font-mono text-xs text-[#77776F]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.article>
+          ))}
         </motion.div>
       </div>
     </section>
   );
-
 }

@@ -1,126 +1,174 @@
 "use client";
-import { motion } from "framer-motion";
-import { 
-  SiPython, 
-  SiTensorflow, 
-  SiPytorch, 
-  SiScikitlearn, 
-  SiPandas, 
-  SiFastapi, 
-  SiPostgresql, 
-  SiPlotly,
+
+import { motion, type Variants } from "framer-motion";
+import {
+  SiPython,
+  SiTensorflow,
+  SiPytorch,
+  SiYolo,
+  SiOpencv,
+  SiFastapi,
+  SiPostgresql,
   SiReact,
   SiNextdotjs,
   SiTailwindcss,
   SiTypescript,
-  SiNodedotjs,
-  SiHtml5,
-  SiJavascript
+  SiJavascript,
+  SiGo,
+  SiLaravel,
+  SiExpress,
+  SiMysql,
+  SiSupabase,
 } from "react-icons/si";
 
 const aiSkills = [
   { name: "Python", icon: SiPython },
   { name: "TensorFlow", icon: SiTensorflow },
   { name: "PyTorch", icon: SiPytorch },
-  { name: "Scikit-Learn", icon: SiScikitlearn },
-  { name: "Pandas", icon: SiPandas },
-  { name: "PostgreSQL", icon: SiPostgresql },
-  { name: "Plotly", icon: SiPlotly },
-  { name: "FastAPI", icon: SiFastapi },
+  { name: "Yolo", icon: SiYolo },
+  { name: "OpenCV", icon: SiOpencv },
 ];
 
-const webSkills = [
+const feSkills = [
   { name: "React", icon: SiReact },
   { name: "Next.js", icon: SiNextdotjs },
-  { name: "Tailwind", icon: SiTailwindcss },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
   { name: "TypeScript", icon: SiTypescript },
-  { name: "Node.js", icon: SiNodedotjs },
-  { name: "HTML5", icon: SiHtml5 },
   { name: "JavaScript", icon: SiJavascript },
 ];
+const beSkills = [
+  { name: "FastAPI", icon: SiFastapi },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "MySQL", icon: SiMysql },
+  { name: "Supabase", icon: SiSupabase },
+  { name: "Golang", icon: SiGo },
+  { name: "Laravel", icon: SiLaravel },
+  { name: "Express.js", icon: SiExpress },
+];
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.06,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 8,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.35,
+      ease: "easeOut",
+    },
+  },
+};
+
+function SkillGroup({
+  number,
+  title,
+  description,
+  skills,
+}: {
+  number: string;
+  title: string;
+  description: string;
+  skills: typeof aiSkills;
+}) {
+  return (
+    <div className="min-w-0">
+      <div className="mb-6 border-b border-[#D6DCE5] pb-5">
+        <p className="mb-3 font-mono text-xs tracking-[0.16em] text-[#00BFAE]">
+          {number} / TECHNICAL SKILLS
+        </p>
+
+        <h3 className="text-2xl font-semibold tracking-[-0.04em]">{title}</h3>
+
+        <p className="mt-2 text-sm leading-7 text-[#596474]">{description}</p>
+      </div>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-40px" }}
+        className="grid grid-cols-2 gap-x-4 sm:grid-cols-2"
+      >
+        {skills.map((skill) => {
+          const Icon = skill.icon;
+
+          return (
+            <motion.div
+              key={skill.name}
+              variants={itemVariants}
+              className="flex items-center gap-3 border-b border-[#D6DCE5]/80 py-4"
+            >
+              <Icon
+                size={18}
+                aria-hidden="true"
+                className="shrink-0 text-[#77776F]"
+              />
+              <span className="text-sm font-medium text-slate-blue-800">
+                {skill.name}
+              </span>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+    </div>
+  );
+}
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-carbon-900 relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        
-        <div className="text-center mb-16 lg:mb-24">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-            Tech <span className="text-petronas-400">Stack</span>
-          </h2>
-          <div className="w-16 h-1 bg-petronas-400 mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-400 max-w-xl mx-auto">
-            Technologies and tools I commonly use for machine learning experiments and building web applications.
+    <section
+      id="skills"
+      className="bg-[#F2F4F7] px-6 py-24 text-slate-blue-800 md:px-12 md:py-32"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 flex flex-col justify-between gap-6 border-b border-[#D6DCE5] pb-8 md:mb-16 md:flex-row md:items-end">
+          <div>
+            <p className="mb-4 font-mono text-xs tracking-[0.18em] text-[#00BFAE]">
+              TOOLS / TECHNOLOGIES
+            </p>
+
+            <h2 className="text-4xl font-semibold tracking-[-0.055em] sm:text-5xl md:text-6xl">
+              Technical skills<span className="text-[#00BFAE]">.</span>
+            </h2>
+          </div>
+
+          <p className="max-w-md text-sm leading-7 text-[#596474] md:text-base">
+            Technologies I use for machine learning experiments, data analysis,
+            and web application development.
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-24 lg:gap-32 min-h-100">
-          
-          <div className="perspective-[1000px] relative flex items-center justify-center">
-            <div className="absolute z-10 w-20 h-20 bg-carbon-800 border-2 border-petronas-400 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(0,210,190,0.4)]">
-              <span className="text-petronas-400 font-bold text-xl">AI / ML</span>
-            </div>
-            
-            <motion.div 
-              animate={{ rotateY: 360 }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="relative w-80 h-80 transform-3d"
-            >
-              <div className="absolute inset-0 border border-carbon-700/50 rounded-full transform-[rotateX(75deg)]"></div>
+        <div className="grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:gap-8">
+          <SkillGroup
+            number="01"
+            title="Machine Learning & Data"
+            description="Tools for data analysis, preprocessing, visualization, and machine learning model development."
+            skills={aiSkills}
+          />
 
-              {aiSkills.map((skill, i) => (
-                <div
-                  key={skill.name}
-                  className="absolute top-1/2 left-1/2 flex flex-col items-center justify-center gap-2 p-3 w-24 h-24 rounded-full bg-carbon-800/80 backdrop-blur-md text-gray-400 border border-petronas-400/20 hover:border-petronas-400 hover:text-petronas-400 hover:shadow-[0_0_20px_rgba(0,210,190,0.4)] transition-all duration-300 cursor-default group"
-                  style={{
-                    transform: `
-                      translate(-50%, -50%) 
-                      rotateY(${(360 / aiSkills.length) * i}deg) 
-                      translateZ(180px)
-                    `,
-                  }}
-                >
-                  <skill.icon className="text-3xl group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-[10px] font-medium tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -bottom-6">
-                    {skill.name}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-          <div className="perspective-[1000px] relative flex items-center justify-center">
-            <div className="absolute z-10 w-20 h-20 bg-carbon-800 border-2 border-blue-400 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(96,165,250,0.4)]">
-              <span className="text-blue-400 font-bold text-xl">WEB</span>
-            </div>
-            
-            <motion.div 
-              animate={{ rotateY: -360 }} 
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="relative w-80 h-80 transform-3d"
-            >
-              <div className="absolute inset-0 border border-carbon-700/50 rounded-full transform-[rotateX(75deg)]"></div>
-
-              {webSkills.map((skill, i) => (
-                <div
-                  key={skill.name}
-                  className="absolute top-1/2 left-1/2 flex flex-col items-center justify-center gap-2 p-3 w-24 h-24 rounded-full bg-carbon-800/80 backdrop-blur-md text-gray-400 border border-blue-400/20 hover:border-blue-400 hover:text-blue-400 hover:shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all duration-300 cursor-default group"
-                  style={{
-                    transform: `
-                      translate(-50%, -50%) 
-                      rotateY(${(360 / webSkills.length) * i}deg) 
-                      translateZ(180px)
-                    `,
-                  }}
-                >
-                  <skill.icon className="text-3xl group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-[10px] font-medium tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -bottom-6">
-                    {skill.name}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
+          <SkillGroup
+            number="02"
+            title="Frontend Development"
+            description="Technologies for building responsive web interfaces and developing server-side applications."
+            skills={feSkills}
+          />
+          <SkillGroup
+            number="03"
+            title="Backend & Database"
+            description="Tools for managing relational databases and building APIs for application integration."
+            skills={beSkills}
+          />
         </div>
       </div>
     </section>

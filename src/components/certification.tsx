@@ -1,6 +1,7 @@
 "use client";
-import { ExternalLink, Award } from "lucide-react"; 
-import { motion, Variants } from "framer-motion";
+
+import { ExternalLink, Award } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 
 const certificates = [
@@ -23,91 +24,122 @@ const certificates = [
     link: "https://www.dicoding.com/certificates/6RPNRE839X2M",
   },
   {
+    name: "Learning Generative AI Fundamentals",
+    issuer: "Dicoding",
+    date: "Jun 2026",
+    link: "https://www.dicoding.com/certificates/JLX1V871JZ72",
+  },
+  {
+    name: "Learning Data Science Implementation with Microsoft Fabric",
+    issuer: "Dicoding",
+    date: "May 2026",
+    link: "https://www.dicoding.com/certificates/JMZVOO87NXN9",
+  },
+  {
     name: "Machine Learning Learning Path (Scholarship)",
     issuer: "DBS Foundation x Dicoding",
     date: "2025",
-    link: "https://www.linkedin.com/posts/rizky-maulana-saputra_certificate-of-completion-dbs-coding-camp-activity-7349014551469641730-CGKe"
-  }
+    link: "https://www.linkedin.com/posts/rizky-maulana-saputra_certificate-of-completion-dbs-coding-camp-activity-7349014551469641730-CGKe",
+  },
 ];
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 12,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function Certificates() {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      transition: { type: "spring", bounce: 0.4, duration: 0.8 } 
-    },
-  };
-
   return (
-    <section id="certificates" className="py-24 bg-carbon-900 relative overflow-hidden">
-      <div className="absolute top-1/3 right-0 w-80 h-80 bg-petronas-600/5 rounded-full blur-[100px] pointer-events-none"></div>
+    <section
+      id="certificates"
+      className="bg-[#E6EAF0] px-6 py-24 text-slate-blue-800 md:px-12 md:py-32"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 flex flex-col justify-between gap-6 border-b border-[#D8D5CD] pb-8 md:mb-16 md:flex-row md:items-end">
+          <div>
+            <p className="mb-4 font-mono text-xs tracking-[0.18em] text-[#00BFAE]">
+              LEARNING / CERTIFICATIONS
+            </p>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-            My <span className="text-petronas-400">Certifications</span>
-          </h2>
-          <div className="w-16 h-1 bg-petronas-400 mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            A collection of certifications from courses and learning programs related to machine learning and data science.
+            <h2 className="text-4xl font-semibold tracking-[-0.055em] sm:text-5xl md:text-6xl">
+              Certifications<span className="text-[#00BFAE]">.</span>
+            </h2>
+          </div>
+
+          <p className="max-w-md text-sm leading-7 text-[#66665F] md:text-base">
+            Courses and learning programs focused on machine learning, data
+            processing, and applied data science.
           </p>
         </div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 gap-x-10 md:grid-cols-2"
         >
-          {certificates.map((cert, idx) => (
-            <motion.div 
+          {certificates.map((cert, index) => (
+            <motion.article
               variants={cardVariants}
-              key={idx} 
-              className="p-6 bg-carbon-800 border border-carbon-700 rounded-xl hover:border-petronas-400 hover:-translate-y-2 hover:shadow-sm hover:shadow-petronas-400 transition-all duration-300 group flex flex-col"
+              key={cert.name}
+              className="group flex min-w-0 flex-col border-b border-[#D8D5CD] py-7 sm:flex-row sm:items-start sm:gap-5 md:py-9"
             >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 bg-carbon-800 border border-carbon-700 rounded-lg group-hover:border-petronas-400/50 group-hover:bg-petronas-400/10 group-hover:text-petronas-400 text-gray-400 transition-all duration-300">
-                  <Award className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-200 line-clamp-2 group-hover:text-white transition-colors leading-tight">
-                    {cert.name}
-                  </h3>
-                </div>
-              </div>
-              <div className="grow">
-                <p className="text-sm font-medium text-petronas-400 mb-1">{cert.issuer}</p>
-                <p className="text-xs text-gray-400 mb-6">{cert.date}</p>
+              <div className="mb-4 flex h-11 w-11 shrink-0 items-center justify-center border border-[#D8D5CD] text-[#00BFAE] transition-colors group-hover:border-[#00BFAE] sm:mb-0">
+                <Award size={20} strokeWidth={1.5} aria-hidden="true" />
               </div>
 
-              {cert.link && (
-                <div className="pt-4 border-t border-carbon-700/50 mt-auto">
-                  <Link 
-                    href={cert.link} 
+              <div className="flex min-w-0 flex-1 flex-col">
+                <p className="mb-2 font-mono text-xs text-[#A39F95]">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+
+                <h3 className="text-lg font-semibold leading-snug tracking-0.025em transition-colors group-hover:text-[#00BFAE] sm:text-xl">
+                  {cert.name}
+                </h3>
+
+                <p className="mt-2 text-sm text-[#66665F]">{cert.issuer}</p>
+
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-[#D8D5CD] pt-4">
+                  <span className="font-mono text-xs text-[#77776F]">
+                    {cert.date}
+                  </span>
+
+                  <Link
+                    href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm font-medium text-gray-400 hover:text-petronas-400 transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-slate-blue-800 transition-colors hover:text-[#00BFAE]"
                   >
-                    View Certificate
-                    <ExternalLink className="w-4 h-4 ml-1.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    View certificate
+                    <ExternalLink
+                      size={14}
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
                   </Link>
                 </div>
-              )}
-            </motion.div>
+              </div>
+            </motion.article>
           ))}
         </motion.div>
       </div>

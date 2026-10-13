@@ -1,84 +1,132 @@
 "use client";
-import { Mail, MapPin,  Send} from "lucide-react";
+
+import { Mail, MapPin, ArrowUpRight } from "lucide-react";
 import { SiHuggingface, SiInstagram, SiGithub } from "react-icons/si";
-import {FaLinkedin} from "react-icons/fa"
+import { FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
+const socialLinks = [
+  {
+    name: "GitHub",
+    href: "https://github.com/RizkyMlana",
+    icon: SiGithub,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/rizky-maulana-saputra",
+    icon: FaLinkedin,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/rizkymlaana/",
+    icon: SiInstagram,
+  },
+  {
+    name: "Hugging Face",
+    href: "https://huggingface.co/Mlaana/",
+    icon: SiHuggingface,
+  },
+];
+
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 bg-carbon-800 relative">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-            Get In <span className="text-petronas-400">Touch</span>
-          </h2>
-          <div className="w-16 h-1 bg-petronas-400 mx-auto rounded-full mb-6"></div>
-        </div>
-    
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+    <section
+      id="contact"
+      className="bg-[#F2F4F7] px-6 py-24 text-slate-blue-800 md:px-12 md:py-32"
+    >
+      <div className="mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto bg-carbon-900 border border-carbon-700 p-8 md:p-12 rounded-2xl shadow-xl relative overflow-hidden text-center"
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
-          <div className="absolute top-0 right-0 w-32 h-32 bg-petronas-600/10 rounded-full blur-2xl pointer-events-none -mr-10 -mt-10"></div>
-          <div className="absolute bottom-0 left-0 w-32 h-32 bg-petronas-600/10 rounded-full blur-2xl pointer-events-none -ml-10 -mb-10"></div>
-
-          <div className="relative z-10">
-            <h3 className="text-2xl font-bold text-white mb-4">Let`s Connect</h3>
-            <p className="text-gray-400 leading-relaxed text-lg mb-10 max-w-2xl mx-auto">
-              If you`d like to discuss a project, collaborate, or just talk about machine learning and technology, feel free to reach out. I`m always open to new ideas and opportunities.
+          <div className="border-t border-[#D8D5CD] pt-8">
+            <p className="mb-5 font-mono text-xs tracking-[0.18em] text-[#00BFAE]">
+              CONTACT / GET IN TOUCH
             </p>
-            
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-8 mb-10">
-              <div className="flex flex-col items-center group">
-                <div className="w-14 h-14 bg-carbon-800 border border-carbon-700 rounded-xl flex items-center justify-center text-petronas-400 mb-4 group-hover:border-petronas-400 group-hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
-                  <Mail size={28} />
-                </div>
-                <p className="text-sm text-gray-500 font-medium mb-1">Email</p>
-                <span className="text-gray-200 transition-colors font-medium">
+
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(260px,0.8fr)] md:items-end md:gap-16">
+              <div>
+                <h2 className="max-w-3xl text-4xl font-semibold leading-[1.08] tracking-[-0.055em] sm:text-5xl md:text-7xl">
+                  Have a project
+                  <br />
+                  or opportunity?
+                  <span className="text-[#00BFAE]"> Let’s talk.</span>
+                </h2>
+
+                <p className="mt-6 max-w-xl text-sm leading-8 text-[#66665F] md:text-base">
+                  Feel free to reach out about job opportunities,
+                  collaborations, or discussions around software development and
+                  machine learning.
+                </p>
+
+                <Link
+                  href="mailto:rizkymlaana.saputra@gmail.com"
+                  className="mt-8 inline-flex items-center gap-3 border-b border-slate-blue-800 pb-3 text-sm font-medium transition-colors hover:border-[#00BFAE] hover:text-[#00BFAE]"
+                >
+                  <Mail size={17} strokeWidth={1.5} aria-hidden="true" />
                   rizkymlaana.saputra@gmail.com
-                </span>
+                  <ArrowUpRight
+                    size={16}
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                </Link>
               </div>
 
-              <div className="hidden sm:block w-px h-16 bg-carbon-700"></div>
-              
-              <div className="flex flex-col items-center group">
-                <div className="w-14 h-14 bg-carbon-800 border border-carbon-700 rounded-xl flex items-center justify-center text-petronas-400 mb-4 group-hover:border-petronas-400 group-hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
-                  <MapPin size={28} />
+              <div className="border-t border-[#D8D5CD] pt-6 md:justify-self-end md:w-full md:max-w-sm">
+                <p className="mb-4 font-mono text-xs tracking-[0.14em] text-[#77776F]">
+                  CURRENT LOCATION
+                </p>
+
+                <div className="flex items-center gap-3 text-sm text-slate-blue-800">
+                  <MapPin
+                    size={17}
+                    strokeWidth={1.5}
+                    className="text-[#00BFAE]"
+                    aria-hidden="true"
+                  />
+                  Surakarta, Jawa Tengah, Indonesia
                 </div>
-                <p className="text-sm text-gray-500 font-medium mb-1">Location</p>
-                <span className="text-gray-200 font-medium">Surakarta, Jawa Tengah</span>
+
+                <div className="mt-10 border-t border-[#D8D5CD] pt-6">
+                  <p className="mb-4 font-mono text-xs tracking-[0.14em] text-[#77776F]">
+                    FIND ME ONLINE
+                  </p>
+
+                  <div className="flex flex-wrap gap-x-6 gap-y-4">
+                    {socialLinks.map((social) => {
+                      const Icon = social.icon;
+
+                      return (
+                        <Link
+                          key={social.name}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={social.name}
+                          className="inline-flex items-center gap-2 text-sm text-[#66665F] transition-colors hover:text-[#00BFAE]"
+                        >
+                          <Icon size={17} aria-hidden="true" />
+                          {social.name}
+                          <ArrowUpRight
+                            size={13}
+                            strokeWidth={1.5}
+                            aria-hidden="true"
+                          />
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
-              <a 
-                href="mailto:rizkymlaana.saputra@gmail.com"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-petronas-400 text-carbon-900 rounded-full font-bold hover:bg-petronas-600 hover:shadow-[0_0_20px_rgba(0,210,190,0.3)] transition-all duration-300"
-              >
-                Send me an Email <Send size={18} />
-              </a>
-            </div>
-
-            <div className="pt-8 border-t border-carbon-700">
-              <p className="text-sm text-gray-500 font-medium mb-4">Find me on</p>
-              <div className="flex justify-center gap-4">
-                <Link href="https://github.com/RizkyMlana" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
-                  <SiGithub size={22} />
-                </Link>
-                <Link href="https://www.linkedin.com/in/rizky-maulana-saputra" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
-                  <FaLinkedin size={22} />
-                </Link>
-                <Link href="https://www.instagram.com/rizkymlaana/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
-                  <SiInstagram size={22}/>
-                </Link>
-                <Link href="https://huggingface.co/Mlaana/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-carbon-800 border border-carbon-700 flex items-center justify-center rounded-full text-gray-400 hover:border-petronas-400 hover:text-petronas-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,210,190,0.3)] transition-all duration-300">
-                  <SiHuggingface size={22}/>
-                </Link>
-              </div>
+            <div className="mt-20 flex flex-col justify-between gap-3 border-t border-[#D8D5CD] pt-5 text-xs text-[#77776F] sm:flex-row sm:items-center">
+              <span>RIZKY MAULANA SAPUTRA</span>
+              <span>SOFTWARE DEVELOPMENT · APPLIED MACHINE LEARNING</span>
             </div>
           </div>
         </motion.div>

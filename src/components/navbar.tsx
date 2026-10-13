@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
 
@@ -12,89 +13,104 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-carbon-900/80 backdrop-blur-md border-b border-carbon-800 transition-all duration-300">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+    <nav className="fixed top-0 z-50 w-full border-b border-[#D6DCE5] bg-[#F2F4F7]/95 text-slate-blue-800 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-12">
         <Link
           href="#home"
-          className="text-2xl font-bold text-white tracking-tight"
+          onClick={() => setIsOpen(false)}
+          className="text-xl font-semibold tracking-[-0.06em]"
         >
-          ML<span className="text-petronas-400">aana</span>
+          ML<span className="text-[#00BFAE]">aana</span>
+          <span className="ml-1 text-[#77776F]">.</span>
         </Link>
-        <div className="hidden md:flex items-center space-x-8">
+
+        <div className="hidden items-center gap-7 md:flex lg:gap-8">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="relative group text-sm font-medium text-gray-300 hover:text-white transition-colors py-2"
+              className="text-sm text-[#66665F] transition-colors hover:text-[#00BFAE]"
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-petronas-400 transition-all duration-300 group-hover:w-full rounded-full" />
             </Link>
           ))}
         </div>
-        <div className="hidden md:block">
-          <Link
-            href="#contact"
-            className="px-5 py-2.5 text-sm font-bold text-carbon-900 bg-petronas-400 hover:bg-petronas-500 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,210,190,0.4)]"
-          >
-            Let`s Talk
-          </Link>
-        </div>
+
+        <Link
+          href="#contact"
+          className="hidden border border-slate-blue-800 px-4 py-2 text-sm font-medium transition-colors hover:border-[#00BFAE] hover:bg-[#00BFAE] hover:text-white md:inline-flex"
+        >
+          Let’s talk <span className="ml-2">↗</span>
+        </Link>
+
         <button
-          className="md:hidden text-gray-300 hover:text-white focus:outline-none"
+          type="button"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
           onClick={() => setIsOpen(!isOpen)}
+          className="flex h-10 w-10 items-center justify-center border border-[#D6DCE5] text-slate-blue-800 transition-colors hover:border-[#00BFAE] md:hidden"
         >
           {isOpen ? (
             <svg
-              className="w-6 h-6"
+              className="h-5 w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
+                strokeWidth={1.5}
+                d="M6 6l12 12M18 6L6 18"
               />
             </svg>
           ) : (
             <svg
-              className="w-6 h-6"
+              className="h-5 w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
+                strokeWidth={1.5}
+                d="M4 7h16M4 12h16M4 17h16"
               />
             </svg>
           )}
         </button>
       </div>
+
       {isOpen && (
-        <div className="md:hidden bg-carbon-900 border-b border-carbon-800 absolute w-full left-0 shadow-lg">
-          <div className="flex flex-col px-4 pt-2 pb-6 space-y-3">
-            {navItems.map((item) => (
+        <div className="absolute left-0 w-full border-b border-[#D6DCE5] bg-[#F2F4F7] md:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col px-6 pb-5 pt-2">
+            {navItems.map((item, index) => (
               <Link
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="text-base font-medium text-gray-300 hover:text-petronas-400 hover:bg-carbon-800 px-3 py-2 rounded-lg transition-colors"
+                className={`border-b border-[#D6DCE5] py-3 text-sm transition-colors hover:text-[#00BFAE] ${
+                  index === 0 ? "border-t" : ""
+                }`}
               >
+                <span className="mr-3 font-mono text-xs text-[#A39F95]">
+                  0{index + 1}
+                </span>
                 {item.name}
               </Link>
             ))}
+
             <Link
               href="#contact"
               onClick={() => setIsOpen(false)}
-              className="mt-4 text-center px-5 py-3 text-sm font-bold text-carbon-900 bg-petronas-400 hover:bg-petronas-500 rounded-lg transition-all"
+              className="mt-5 flex items-center justify-between border border-slate-blue-800 px-4 py-3 text-sm font-medium transition-colors hover:bg-slate-blue-800 hover:text-white"
             >
-              Let`s Talk
+              Let’s talk <span>↗</span>
             </Link>
           </div>
         </div>

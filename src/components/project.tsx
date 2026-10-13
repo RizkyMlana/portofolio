@@ -1,8 +1,9 @@
 "use client";
-import { motion, Variants } from "framer-motion";
+
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { SiGithub} from "react-icons/si";
+import { SiGithub } from "react-icons/si";
 
 const projects = [
   {
@@ -11,17 +12,17 @@ const projects = [
     tech: ["Python", "PyTorch", "Gradio", "HuggingFace"],
     image: "/images/projects/freshwater-fish-classification.png",
     githubLink: "https://github.com/RizkyMlana/Freshwater-Fish-Disease-Model",
-    demoLink : "https://huggingface.co/spaces/Mlaana/Freshwater-Fish-Disease",
+    demoLink: "https://huggingface.co/spaces/Mlaana/Freshwater-Fish-Disease",
   },
   {
-    title: "SignArgi – Sign Language Recognition",
+    title: "SignArgi — Sign Language Recognition",
     desc: "Computer vision system that recognizes sign language gestures using a MobileNet-based CNN model. Designed as a prototype for real-time sign language translation.",
     tech: ["Python", "TensorFlow", "OpenCV"],
     image: "/images/projects/signargi.png",
     githubLink: "https://github.com/RizkyMlana/SignArgi-Model",
   },
   {
-    title: "GymBro – AI Fitness Chatbot",
+    title: "GymBro — AI Fitness Chatbot",
     desc: "Fitness-focused chatbot application deployed using Gradio and HuggingFace Spaces.",
     tech: ["Python", "HuggingFace", "Gradio"],
     image: "/images/projects/gymbro-chatbot.png",
@@ -29,13 +30,14 @@ const projects = [
     demoLink: "https://huggingface.co/spaces/Mlaana/Chatbot",
   },
   {
-    title: "GymBro – Exercise Classification Model",
+    title: "GymBro — Exercise Classification Model",
     desc: "Computer vision model for recognizing workout exercises from images using a convolutional neural network. Deployed as an interactive demo using Gradio on HuggingFace Spaces.",
     tech: ["Python", "TensorFlow", "Gradio", "HuggingFace"],
     image: "/images/projects/gymbro-classification-food.png",
-    githubLink: "https://huggingface.co/spaces/Mlaana/Classification-Food/tree/main",
+    githubLink:
+      "https://huggingface.co/spaces/Mlaana/Classification-Food/tree/main",
     demoLink: "https://huggingface.co/spaces/Mlaana/Classification-Food",
-  }, 
+  },
   {
     title: "Sentiment Analysis of MyTelkomsel Reviews",
     desc: "NLP pipeline analyzing Play Store reviews of the MyTelkomsel app using lexicon-based labeling, multiple feature extraction methods, and machine learning models.",
@@ -50,130 +52,153 @@ const projects = [
     image: "/images/projects/pipeline.png",
     githubLink: "https://github.com/RizkyMlana/ETL-Project",
   },
-  
 ];
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const projectVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 14,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function Projects() {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2, 
-      },
-    },
-  };
-
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      transition: { type: "spring", bounce: 0.4, duration: 0.8 } 
-    },
-  };
-
   return (
-    <section id="projects" className="py-24 bg-carbon-900 relative">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-            Featured <span className="text-petronas-400">Projects</span>
-          </h2>
-          <div className="w-20 h-1 bg-petronas-400 mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            A selection of machine learning and data-driven projects I built while learning and experimenting with different models and technologies.
+    <section
+      id="projects"
+      className="bg-[#E6EAF0] px-6 py-24 text-slate-blue-800 md:px-12 md:py-32"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 flex flex-col justify-between gap-6 border-b border-[#D6DCE5] pb-8 md:mb-16 md:flex-row md:items-end">
+          <div>
+            <p className="mb-4 font-mono text-xs tracking-[0.18em] text-[#00BFAE]">
+              SELECTED WORK / 01—06
+            </p>
+
+            <h2 className="text-4xl font-semibold tracking-[-0.055em] sm:text-5xl md:text-6xl">
+              Projects<span className="text-[#00BFAE]">.</span>
+            </h2>
+          </div>
+
+          <p className="max-w-md text-sm leading-7 text-[#66665F] md:text-base">
+            A selection of projects exploring machine learning, computer vision,
+            natural language processing, and data engineering.
           </p>
         </div>
-        
-        <motion.div 
+
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 md:gap-y-16 lg:gap-x-10"
         >
-          {projects.map((project) => (
-            <motion.div 
-              variants={cardVariants}
-              key={project.title} 
-              className="group bg-carbon-800 border border-carbon-700 rounded-2xl overflow-hidden hover:border-petronas-400/50 hover:shadow-sm hover:shadow-petronas-400 hover:-translate-y-2 transition-all duration-300 flex flex-col"
+          {projects.map((project, index) => (
+            <motion.article
+              variants={projectVariants}
+              key={project.title}
+              className="group min-w-0"
             >
-              <div className="relative aspect-video w-full bg-carbon-900 overflow-hidden border-b border-carbon-700">
-                 <div className="absolute inset-0 flex flex-col justify-center items-center text-gray-500 z-0">
-                    <svg className="w-10 h-10 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span className="text-xs">Project Image</span>
-                 </div>
-                 <Image 
-                    src={project.image} 
-                    alt={project.title} 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-center relative z-10 group-hover:scale-110 transition-transform duration-700 ease-in-out opacity-80 group-hover:opacity-100" 
-                 />
-                 
-                 <div className="absolute inset-0 bg-linear-to-t from-carbon-800 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none"></div>
+              <div className="relative mb-6 aspect-16/10 overflow-hidden bg-[#EAE7DF]">
+                <Image
+                  src={project.image}
+                  alt={`${project.title} project preview`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                />
+
+                <span className="absolute left-4 top-4 z-10 bg-[#F2F4F7] px-3 py-1.5 font-mono text-xs text-slate-blue-800">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
 
-              <div className="p-6 flex flex-col grow">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-petronas-400 transition-colors">
-                  {project.title}
-                </h3>
-                
-                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+              <div className="flex flex-col">
+                <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
+                  <h3 className="max-w-xl text-xl font-semibold leading-snug tracking-[-0.03em] transition-colors group-hover:text-[#00BFAE] sm:text-2xl">
+                    {project.title}
+                  </h3>
+
+                  <span className="pt-1 font-mono text-xs text-[#A39F95]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                <p className="mb-5 max-w-2xl text-sm leading-7 text-[#66665F]">
                   {project.desc}
                 </p>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((t) => (
-                    <span 
-                      key={t} 
-                      className="px-3 py-1 bg-carbon-900 text-gray-300 border border-carbon-700 text-xs font-medium rounded-md group-hover:border-petronas-400/30 transition-colors"
+
+                <div className="mb-6 flex flex-wrap gap-x-3 gap-y-2">
+                  {project.tech.map((technology) => (
+                    <span
+                      key={technology}
+                      className="font-mono text-xs text-[#77776F]"
                     >
-                      {t}
+                      {technology}
                     </span>
                   ))}
                 </div>
 
-                <div className="pt-4 border-t border-carbon-700 flex items-center justify-between mt-auto">
-                  <Link href={project.githubLink} className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors">
-                    <SiGithub/>
-                    Source Code
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-[#D6DCE5] pt-4">
+                  <Link
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-slate-blue-800 transition-colors hover:text-[#00BFAE]"
+                  >
+                    <SiGithub aria-hidden="true" size={15} />
+                    Source
+                    <span aria-hidden="true">↗</span>
                   </Link>
 
                   {project.demoLink && (
-                    <Link href={project.demoLink} target="_blank" rel="noopener noreferrer" className="text-petronas-400 hover:text-petronas-300 flex items-center gap-1.5 text-sm font-medium transition-colors">
-                      Live Demo
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
+                    <Link
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-[#00BFAE] transition-colors hover:text-slate-blue-800"
+                    >
+                      Live demo
+                      <span aria-hidden="true">↗</span>
                     </Link>
                   )}
                 </div>
               </div>
-
-            </motion.div>
+            </motion.article>
           ))}
         </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-          className="mt-14 text-center"
-        >
-          <a href="https://github.com/RizkyMlana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-3.5 bg-carbon-800 border border-carbon-700 hover:border-petronas-400 text-gray-300 hover:text-petronas-400 rounded-full text-sm font-semibold hover:shadow-sm hover:shadow-petronas-400 transition-all duration-300">
-            View More on GitHub 
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </motion.div>
+        <div className="mt-20 flex flex-col justify-between gap-5 border-t border-[#D6DCE5] pt-6 sm:flex-row sm:items-center">
+          <p className="text-sm text-[#77776F]">
+            More experiments and source code
+          </p>
 
+          <Link
+            href="https://github.com/RizkyMlana"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-fit items-center gap-3 border-b border-slate-blue-800 pb-2 text-sm font-medium transition-colors hover:border-[#00BFAE] hover:text-[#00BFAE]"
+          >
+            Explore GitHub
+            <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -13,14 +13,14 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Projects />
-      <Experience/>
+      <Experience />
       <Certificates />
       <Skills />
       <About />
       <Contact />
-      <footer className="border-t py-8 border-carbon-700 text-center">
+      <footer className="bg-[#F2F4F7]  border-t py-8 border-[#D8D5CD] text-center">
         <p className="text-gray-500 text-sm">
-          © {new Date().getFullYear()} <span className="text-petronas-500">Rizky Maulana Saputra.</span>
+          © {new Date().getFullYear()} <span>Rizky Maulana Saputra.</span>
         </p>
       </footer>
     </main>
